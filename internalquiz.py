@@ -1,7 +1,7 @@
 '''This program will quiz the user on the New Zealand TV show, Shortland Street'''
 
 #This stores the questions and answers that the user will be asked
-questions = {"When did Shortland Street debut?(DD/MM/YYYY)" : "25/05/1992",
+questions = {"True or false. Did Shortland street debut in 1995?" : "False",
             "True or false. Is Shortland Street the longest running NZ TV show?" : "True",
             "What year did Ed Sheeran have a cameo on the show?" : "2014",
             "What drink replaced sparkling wine with when filming?" : "L&P",
@@ -15,11 +15,15 @@ questions = {"When did Shortland Street debut?(DD/MM/YYYY)" : "25/05/1992",
 score = 0
 
 #Using a for loop will provide the user with questions
-for questions, answers in questions:
-    user_answer = input(questions)
-    if user_answer.lower() == answers.lower():
-        print("Correct!")
-        score += 1
-    else:
-        try:
-            user_answer.lower() == answers.lower()
+for question, answer in questions.items():
+    try:
+        user_answer = input(question)
+        if user_answer.lower() == answer.lower():
+            print("Correct!")
+            score += 1
+    except Exception as error:
+        print(f"{error}! Please answer with a valid response.")
+
+percent = score/10
+
+        
