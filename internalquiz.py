@@ -21,8 +21,17 @@ for question, answer in questions.items():
         if user_answer.lower() == answer.lower():
             print("Correct!")
             score += 1
+        else:
+            print("False.")
     except Exception as error:
-        print(f"{error}! Please answer with a valid response.")
+        print(f"{error}!")
+    if type(answer) is (int):
+        try:
+            user_answer = input(question)
+        except ValueError:
+            print("Please enter a valid number")
+        except ZeroDivisionError:
+            print("Please enter a valid number")
 
 percent = score/10
 
